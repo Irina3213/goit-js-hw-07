@@ -1,24 +1,12 @@
-const inputRef = document.querySelector('.js-input');
+const nameInput = document.querySelector('#name-input');
+const nameOutput = document.querySelector('#name-output');
 
-const nameLabelRef = document.querySelector('.js-title > span');
+nameInput.addEventListener('input', event => {
+  const trimmedValue = event.currentTarget.value.trim();
 
-inputRef.addEventListener('focus', handleInputFocus);
-
-inputRef.addEventListener('blur', handleEventBlur);
-
-inputRef.addEventListener('input', handleInputChange);
-
-function handleInputFocus(event) {
-  console.log('Получил фокус!');
-}
-
-function handleEventBlur(event) {
-  console.log('Потерял фокус!');
-}
-
-function handleInputChange(event) {
-  nameLabelRef.textContent = event.target.value.trim();
-  if (!span.textContent) {
-    span.textContent = 'Anonymous';
+  if (trimmedValue === '') {
+    nameOutput.textContent = 'Anonymous';
+  } else {
+    nameOutput.textContent = trimmedValue;
   }
-}
+});
